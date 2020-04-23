@@ -96,7 +96,7 @@ class WebHook
         return base64_encode(
             hash_hmac(
                 'sha256',
-                json_encode($this->getDataFromRequest()),
+                $this->http_request->getContent(),
                 $this->secret_key,
                 true
             )
